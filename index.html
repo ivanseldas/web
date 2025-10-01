@@ -569,49 +569,70 @@
     <div class="container">
       <div class="section-title">Selected Work</div>
 
-  <!-- PROJECT 1B: Automated Content Generator - Agentic RAG Workflow -->
+      <!-- PROJECT 1: Barcelona Noise Forecasting (moved up) -->
       <article class="card">
         <div class="row">
           <div class="col">
-            <h3><a href="projects/content-automation/index.html" class="project-link" aria-label="Open case study: Automated Content Generator - Agentic RAG Workflow">Automated Content Generator - Agentic RAG Workflow</a></h3>
-            <p class="microhook-line" style="margin-top:2px;">Manual drafts are slow. Generate long-form, cited content from your internal docs. </p>
-            <div class="desc-block" style="margin-top:-2px;">
-              <ul class="desc-list" style="margin:4px 0 6px;">
-                <li><strong>Automated research and article generation </strong> using your own content base, retrieved from a vectorized PostgreSQL database.</li>
-                <li><strong>Delivered</strong> structured, verifiable content with citation tracking and quality controls.</li>
+            <h3 role="button" tabindex="0" aria-expanded="false" aria-controls="details-proj-2">Barcelona Noise Forecasting</h3>
+            <p class="microhook-line" style="margin-top:2px;">Can a city forecast its own noise hotspots before they spike?<br> <span class="intro-story" style="display:inline; font-style:normal; background:none; background-clip:initial; color:#dcdcdc; -webkit-background-clip:initial; filter:none;">Built a multi-model layer to anticipate urban noise hours ahead and guide proactive mitigation.</span></p>
+            <div class="desc-block">
+              <ul class="desc-list">
+                <li><strong>Blended</strong> SARIMA baselines + Gradient Boosting residuals + spatial kriging — closing data gaps in cold sensor zones.</li>
+                <li><strong>Automated</strong> holiday / event regressors & monitoring — enabling proactive municipal noise mitigation.</li>
               </ul>
             </div>
             <div class="results-block" style="margin:6px 0 14px;">
               <div class="results-inline-label">Results</div>
-              <ul class="desc-list arrow" style="margin:6px 0 0 0;">
-                <li><span class="metric">Reduces</span> content creation <span class="metric">time</span> to a minimum</li>
-                <li>Maintains content <span class="metric">structure</span> and <span class="metric">quality standards</span></li>
-                <li>Only <span class="metric">stored docs</span> + citations (no hallucination)</li>
+              <ul class="results-list">
+                <li>
+                  <span class="res-icon relevance">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" /><path d="M12 4v8l5 3" /></svg>
+                  </span>
+                  <span class="metric">−18% RMSE</span> vs baseline (multi-season).</li>
+                <li>
+                  <span class="res-icon speed">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 16 0" /><path d="M12 12 16 8" /><circle cx="12" cy="12" r="1" fill="var(--blue-brand)" stroke="none" /></svg>
+                  </span>
+                  Increased spatial coverage via kriging for underserved districts.</li>
               </ul>
             </div>
-            <div class="links-block" style="margin-top:4px;">
-              <a class="btn" href="mailto:ivanseldasp@gmail.com?subject=Content%20Automation%20Workflow%20demo" target="_blank" rel="noopener noreferrer">Request Demo</a>
-              <a class="btn" href="#" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <div class="links-block">
+              <a class="btn" href="https://noise-forecasting-frontend-924171883482.europe-west1.run.app/" target="_blank" rel="noopener noreferrer">Demo</a>
+              <a class="btn" href="#">Notebook</a>
+              <a class="btn" href="#">Report</a>
             </div>
           </div>
           <div class="media">
-            <div class="video-wrapper" aria-label="Video demo: Automated Content Generator - Agentic RAG Workflow">
-              <video class="project-video" muted loop playsinline preload="metadata" data-src="videos/projects/content_automation_demo_720.mp4"></video>
-            </div>
-            <div class="tag-block tags" style="margin-top:28px;">
-              <span class="tag" data-skill="n8n">n8n</span>
-              <span class="tag" data-skill="AI Agents">AI Agents</span>
-              <span class="tag" data-skill="LLM Fine-Tuning">LLM Fine-Tuning</span>
-              <span class="tag" data-skill="Supabase">Supabase</span>
-              <span class="tag" data-skill="Semantic Search">Semantic Search</span>
-              <span class="tag" data-skill="Embeddings">Embeddings</span>
-              <span class="tag" data-skill="RAG Pipelines">RAG Pipelines</span>
+            <picture>
+              <source type="image/webp" srcset="images/projects/noise_800.webp 800w">
+              <img src="images/projects/noise_800.jpg"
+                   srcset="images/projects/noise_800.jpg 800w, images/projects/noise_1200.jpg 1200w"
+                   sizes="(min-width:900px) 50vw, 100vw"
+                   alt="Screenshot of the Barcelona Noise Forecasting project"
+                   loading="lazy" />
+            </picture>
+            <div class="tag-block tags" style="margin-top:24px;">
+              <span class="tag" data-skill="Time Series Forecasting">Time Series Forecasting</span>
             </div>
           </div>
         </div>
+        <!-- Expandable details: Project 2 (renumbered) -->
+        <div class="project-details" id="details-proj-2" role="region" aria-label="More details: Barcelona Noise Forecasting">
+          <div class="detail-header">
+            <h4 class="detail-title">More details</h4>
+            <div class="detail-actions">
+              <button type="button" class="btn close-details" aria-label="Close details">Close</button>
+            </div>
+          </div>
+          <p class="intro-story" style="margin-top:0;">Hybrid SARIMA + gradient boosting residuals with spatial interpolation (kriging) to fill cold zones. Automated regressors for holidays/events and monitoring hooks for drift.</p>
+          <ul class="desc-list">
+            <li>Feature engineering for temporal/spatial seasonality, weather, and event calendars.</li>
+            <li>Backtesting across multi-season windows; prioritized RMSE and coverage stability.</li>
+          </ul>
+        </div>
       </article>
 
-      <!-- PROJECT 1 -->
+      <!-- PROJECT 2: Sentiment -->
       <article class="card">
         <div class="row">
           <div class="col">
@@ -654,7 +675,49 @@
   <!-- Project 1 now links to a dedicated case study page; inline details removed -->
       </article>
 
-      <!-- PROJECT 4 (moved up to position 3) -->
+      <!-- PROJECT 3: Automated Content Generator -->
+      <article class="card">
+        <div class="row">
+          <div class="col">
+            <h3><a href="projects/content-automation/index.html" class="project-link" aria-label="Open case study: Automated Content Generator - Agentic RAG Workflow">Automated Content Generator - Agentic RAG Workflow</a></h3>
+            <p class="microhook-line" style="margin-top:2px;">Manual drafts are slow. Generate long-form, cited content from your internal docs. </p>
+            <div class="desc-block" style="margin-top:-2px;">
+              <ul class="desc-list" style="margin:4px 0 6px;">
+                <li><strong>Automated research and article generation </strong> using your own content base, retrieved from a vectorized PostgreSQL database.</li>
+                <li><strong>Delivered</strong> structured, verifiable content with citation tracking and quality controls.</li>
+              </ul>
+            </div>
+            <div class="results-block" style="margin:6px 0 14px;">
+              <div class="results-inline-label">Results</div>
+              <ul class="desc-list arrow" style="margin:6px 0 0 0;">
+                <li><span class="metric">Reduces</span> content creation <span class="metric">time</span> to a minimum</li>
+                <li>Maintains content <span class="metric">structure</span> and <span class="metric">quality standards</span></li>
+                <li>Only <span class="metric">stored docs</span> + citations (no hallucination)</li>
+              </ul>
+            </div>
+            <div class="links-block" style="margin-top:4px;">
+              <a class="btn" href="mailto:ivanseldasp@gmail.com?subject=Content%20Automation%20Workflow%20demo" target="_blank" rel="noopener noreferrer">Request Demo</a>
+              <a class="btn" href="#" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+          </div>
+          <div class="media">
+            <div class="video-wrapper" aria-label="Video demo: Automated Content Generator - Agentic RAG Workflow">
+              <video class="project-video" muted loop playsinline preload="metadata" data-src="videos/projects/content_automation_demo_720.mp4"></video>
+            </div>
+            <div class="tag-block tags" style="margin-top:28px;">
+              <span class="tag" data-skill="n8n">n8n</span>
+              <span class="tag" data-skill="AI Agents">AI Agents</span>
+              <span class="tag" data-skill="LLM Fine-Tuning">LLM Fine-Tuning</span>
+              <span class="tag" data-skill="Supabase">Supabase</span>
+              <span class="tag" data-skill="Semantic Search">Semantic Search</span>
+              <span class="tag" data-skill="Embeddings">Embeddings</span>
+              <span class="tag" data-skill="RAG Pipelines">RAG Pipelines</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- PROJECT 4: Churn Prediction -->
       <article class="card">
         <div class="row">
           <div class="col">
@@ -709,131 +772,12 @@
         </div>
       </article>
 
-      <!-- PROJECT 2 (moved to position 4) -->
+      <!-- PROJECT Asthma (hidden) -->
+      <!--
       <article class="card">
-        <div class="row">
-          <div class="col">
-            <h3 role="button" tabindex="0" aria-expanded="false" aria-controls="details-proj-2">Barcelona Noise Forecasting</h3>
-            <p class="microhook-line" style="margin-top:2px;">Can a city forecast its own noise hotspots before they spike?<br> <span class="intro-story" style="display:inline; font-style:normal; background:none; background-clip:initial; color:#dcdcdc; -webkit-background-clip:initial; filter:none;">Built a multi-model layer to anticipate urban noise hours ahead and guide proactive mitigation.</span></p>
-            <div class="desc-block">
-              <ul class="desc-list">
-                <li><strong>Blended</strong> SARIMA baselines + Gradient Boosting residuals + spatial kriging — closing data gaps in cold sensor zones.</li>
-                <li><strong>Automated</strong> holiday / event regressors & monitoring — enabling proactive municipal noise mitigation.</li>
-              </ul>
-            </div>
-            <div class="results-block" style="margin:6px 0 14px;">
-              <div class="results-inline-label">Results</div>
-              <ul class="results-list">
-                <li>
-                  <span class="res-icon relevance">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" /><path d="M12 4v8l5 3" /></svg>
-                  </span>
-                  <span class="metric">−18% RMSE</span> vs baseline (multi-season).</li>
-                <li>
-                  <span class="res-icon speed">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 16 0" /><path d="M12 12 16 8" /><circle cx="12" cy="12" r="1" fill="var(--blue-brand)" stroke="none" /></svg>
-                  </span>
-                  Increased spatial coverage via kriging for underserved districts.</li>
-              </ul>
-            </div>
-            <div class="links-block">
-              <a class="btn" href="https://noise-forecasting-frontend-924171883482.europe-west1.run.app/" target="_blank" rel="noopener noreferrer">Demo</a>
-              <a class="btn" href="#">Notebook</a>
-              <a class="btn" href="#">Report</a>
-            </div>
-          </div>
-          <div class="media">
-            <picture>
-              <source type="image/webp" srcset="images/projects/noise_800.webp 800w">
-              <img src="images/projects/noise_800.jpg"
-                   srcset="images/projects/noise_800.jpg 800w, images/projects/noise_1200.jpg 1200w"
-                   sizes="(min-width:900px) 50vw, 100vw"
-                   alt="Screenshot of the Barcelona Noise Forecasting project"
-                   loading="lazy" />
-            </picture>
-            <div class="tag-block tags" style="margin-top:24px;">
-              <span class="tag" data-skill="Time Series Forecasting">Time Series Forecasting</span>
-            </div>
-          </div>
-        </div>
-        <!-- Expandable details: Project 2 -->
-        <div class="project-details" id="details-proj-2" role="region" aria-label="More details: Barcelona Noise Forecasting">
-          <div class="detail-header">
-            <h4 class="detail-title">More details</h4>
-            <div class="detail-actions">
-              <button type="button" class="btn close-details" aria-label="Close details">Close</button>
-            </div>
-          </div>
-          <p class="intro-story" style="margin-top:0;">Hybrid SARIMA + gradient boosting residuals with spatial interpolation (kriging) to fill cold zones. Automated regressors for holidays/events and monitoring hooks for drift.</p>
-          <ul class="desc-list">
-            <li>Feature engineering for temporal/spatial seasonality, weather, and event calendars.</li>
-            <li>Backtesting across multi-season windows; prioritized RMSE and coverage stability.</li>
-          </ul>
-        </div>
+        ... Asthma Risk Prediction System (temporarily hidden) ...
       </article>
-
-  <!-- PROJECT 3 (moved to position 5) -->
-  <article class="card">
-        <div class="row">
-          <div class="col">
-            <h3 role="button" tabindex="0" aria-expanded="false" aria-controls="details-proj-3">Asthma Risk Prediction System</h3>
-            <p class="microhook-line" style="margin-top:2px;">What if we could predict asthma risk before symptoms appear?<br> <span class="intro-story" style="display:inline; font-style:normal; background:none; background-clip:initial; color:#dcdcdc; -webkit-background-clip:initial; filter:none;">Built an ML system forecasting asthma risk from <strong>1.2M+ environmental & clinical records</strong> to surface high‑risk zones early.</span></p>
-            <div class="desc-block">
-              <ul class="desc-list">
-                <li><strong>Trained</strong> regression models (MAE: 0.53) on multi-source datasets estimating individual risk & population hotspots.</li>
-                <li><strong>Engineered</strong> ETL pipelines (clean, merge, feature) preparing 1.2M+ records & aligning with medical guidelines.</li>
-                <li><strong>Built</strong> interactive Tableau dashboard for exploratory drill-down & public health decision support.</li>
-              </ul>
-            </div>
-            <div class="results-block" style="margin:6px 0 14px;">
-              <div class="results-inline-label">Results</div>
-              <ul class="results-list">
-                <li>
-                  <span class="res-icon relevance">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" /><path d="M12 4v8l5 3" /></svg>
-                  </span>
-                  <span class="metric">MAE 0.53</span> enabling targeted preventive measures in priority districts.</li>
-                <li>
-                  <span class="res-icon speed">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 16 0" /><path d="M12 12 16 8" /><circle cx="12" cy="12" r="1" fill="var(--blue-brand)" stroke="none" /></svg>
-                  </span>
-                  Interactive risk maps (Tableau) supporting data-driven public health interventions.</li>
-              </ul>
-            </div>
-            <div class="links-block">
-              <a class="btn" href="#">View Dashboard</a>
-              <a class="btn" href="#">View GitHub</a>
-              <a class="btn" href="#">Case Study</a>
-            </div>
-          </div>
-          <div class="media">
-            <picture>
-              <img src="assets/images/projects/sentiment/final_matrix_triangular.jpg"
-                   alt="Asthma Risk Prediction — dashboard placeholder"
-                   loading="lazy" />
-            </picture>
-            <div class="tag-block tags" style="margin-top:24px;">
-              <span class="tag" data-skill="Python">Python</span>
-              <span class="tag" data-skill="Regression">Regression</span>
-              <span class="tag" data-skill="Tableau">Tableau</span>
-            </div>
-          </div>
-        </div>
-        <!-- Expandable details: Project 3 -->
-        <div class="project-details" id="details-proj-3" role="region" aria-label="More details: Asthma Risk Prediction System">
-          <div class="detail-header">
-            <h4 class="detail-title">More details</h4>
-            <div class="detail-actions">
-              <button type="button" class="btn close-details" aria-label="Close details">Close</button>
-            </div>
-          </div>
-          <p class="intro-story" style="margin-top:0;">Multi-source ETL to align environmental and clinical signals. Model selection focused on explainability and operational thresholds, with dashboarding for public health use.</p>
-          <ul class="desc-list">
-            <li>Bias/variance checks and MAE-based optimization; calibration where needed.</li>
-            <li>Interactive Tableau visuals for hotspot exploration and what-if analysis.</li>
-          </ul>
-        </div>
-      </article>
+      -->
     </div>
   </section>
 
