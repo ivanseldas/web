@@ -268,7 +268,13 @@
   .card .results-inline-label::after { content:""; position:absolute; left:0; bottom:-4px; height:2px; width:64px; background:var(--blue-brand); border-radius:2px; opacity:.95; }
   .card .results-list { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:6px; }
   /* Unified results list item line-height */
-  .card .results-list li { display:flex; gap:8px; align-items:flex-start; font-size:0.8rem; line-height:1.6; color:#dcdcdc; }
+  .card .results-list li { display:flex; gap:6px; align-items:flex-start; font-size:0.8rem; line-height:1.48; color:#dcdcdc; flex-wrap:wrap; }
+  /* Ensure hook line in cards behaves as block and has consistent spacing */
+  .card .microhook-line { display:block; }
+  /* Slight added bottom spacing after hook for better separation from lists */
+  .card .microhook-line + .desc-block { margin-top:4px !important; }
+  /* Anchor project titles as block to avoid layout collisions */
+  .card h3 a { display:inline-block; }
   .card .results-list .res-icon { width:18px; height:18px; flex-shrink:0; display:inline-flex; align-items:center; justify-content:center; margin-top:2px; }
   .card .results-list .res-icon svg { width:18px; height:18px; stroke:var(--blue-brand); stroke-width:1.7; fill:none; }
   .card .results-list .res-icon.speed svg { stroke-width:1.9; }
@@ -538,6 +544,7 @@
             <span class="tag" data-skill="Power BI">Power BI</span>
             <span class="tag" data-skill="Plotly">Plotly</span>
             <span class="tag" data-skill="Matplotlib">Matplotlib</span>
+            <span class="tag" data-skill="Streamlit">Streamlit</span>
           </div>
         </div>
         <div class="skill-col" data-group="cloud-data-eng">
@@ -547,6 +554,7 @@
             <span class="tag" data-skill="Supabase">Supabase</span>
             <span class="tag" data-skill="Snowflake">Snowflake</span>
             <span class="tag" data-skill="Google Cloud Platform">Google Cloud Platform</span>
+            <span class="tag" data-skill="AWS">AWS</span>
           </div>
         </div>
         <div class="skill-col" data-group="automation-mlops">
@@ -556,6 +564,8 @@
             <span class="tag" data-skill="CI/CD">CI/CD</span>
             <span class="tag" data-skill="Git">Git</span>
             <span class="tag" data-skill="n8n">n8n</span>
+            <span class="tag" data-skill="FastAPI">FastAPI</span>
+            <span class="tag" data-skill="MLflow">MLflow</span>
           </div>
         </div>
       </div>
@@ -573,33 +583,24 @@
       <article class="card">
         <div class="row">
           <div class="col">
-            <h3 role="button" tabindex="0" aria-expanded="false" aria-controls="details-proj-2">Barcelona Noise Forecasting</h3>
-            <p class="microhook-line" style="margin-top:2px;">Can a city forecast its own noise hotspots before they spike?<br> <span class="intro-story" style="display:inline; font-style:normal; background:none; background-clip:initial; color:#dcdcdc; -webkit-background-clip:initial; filter:none;">Built a multi-model layer to anticipate urban noise hours ahead and guide proactive mitigation.</span></p>
+            <h3><a href="https://github.com/ivanseldas/BCN-Noise-Predictions-Timeseries" target="_blank" rel="noopener noreferrer">BCN Noise Predictions Time Series</a></h3>
+            <p class="microhook-line" style="margin-top:2px;">What if your ML model could hear the city and predict its next move?<br><span class="intro-story" style="display:inline; font-style:normal; background:none; color:#dcdcdc;">I've developed a real-time noise forecasting system that leverages urban noise data.</span></p>
             <div class="desc-block">
               <ul class="desc-list">
-                <li><strong>Blended</strong> SARIMA baselines + Gradient Boosting residuals + spatial kriging — closing data gaps in cold sensor zones.</li>
-                <li><strong>Automated</strong> holiday / event regressors & monitoring — enabling proactive municipal noise mitigation.</li>
+                <li><strong>Production pipeline</strong>: feature engineering, experiment tracking (MLflow), model registry & deployment.</li>
+                <li><strong>Real-time stack</strong>: FastAPI service + Streamlit dashboard (Google Cloud Run) with Docker + CI/CD.</li>
               </ul>
             </div>
             <div class="results-block" style="margin:6px 0 14px;">
               <div class="results-inline-label">Results</div>
-              <ul class="results-list">
-                <li>
-                  <span class="res-icon relevance">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" /><path d="M12 4v8l5 3" /></svg>
-                  </span>
-                  <span class="metric">−18% RMSE</span> vs baseline (multi-season).</li>
-                <li>
-                  <span class="res-icon speed">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 16 0" /><path d="M12 12 16 8" /><circle cx="12" cy="12" r="1" fill="var(--blue-brand)" stroke="none" /></svg>
-                  </span>
-                  Increased spatial coverage via kriging for underserved districts.</li>
+              <ul class="desc-list arrow" style="margin:6px 0 0 0;">
+                <li><span class="metric">70% error reduction</span> vs baseline models (<span class="metric">RMSE 3.0 dB</span>, <br><span class="metric">MAE ~1.2 dB</span>), accurately predicting when noise exceeds 65-70 dB human safety threshold.</li>
+                <li>Forecast ranges capture <span class="metric">93–95% of real outcomes.</span></li>
               </ul>
             </div>
             <div class="links-block">
               <a class="btn" href="https://noise-forecasting-frontend-924171883482.europe-west1.run.app/" target="_blank" rel="noopener noreferrer">Demo</a>
-              <a class="btn" href="#">Notebook</a>
-              <a class="btn" href="#">Report</a>
+              <a class="btn" href="https://github.com/ivanseldas/BCN-Noise-Predictions-Timeseries" target="_blank" rel="noopener noreferrer">GitHub</a>
             </div>
           </div>
           <div class="media">
@@ -613,23 +614,17 @@
             </picture>
             <div class="tag-block tags" style="margin-top:24px;">
               <span class="tag" data-skill="Time Series Forecasting">Time Series Forecasting</span>
+              <span class="tag" data-skill="FastAPI">FastAPI</span>
+              <span class="tag" data-skill="Streamlit">Streamlit</span>
+              <span class="tag" data-skill="MLflow">MLflow</span>
+              <span class="tag" data-skill="Docker">Docker</span>
+              <span class="tag" data-skill="CI/CD">CI/CD</span>
+              <span class="tag" data-skill="Google Cloud Platform">Google Cloud Platform</span>
             </div>
           </div>
         </div>
         <!-- Expandable details: Project 2 (renumbered) -->
-        <div class="project-details" id="details-proj-2" role="region" aria-label="More details: Barcelona Noise Forecasting">
-          <div class="detail-header">
-            <h4 class="detail-title">More details</h4>
-            <div class="detail-actions">
-              <button type="button" class="btn close-details" aria-label="Close details">Close</button>
-            </div>
-          </div>
-          <p class="intro-story" style="margin-top:0;">Hybrid SARIMA + gradient boosting residuals with spatial interpolation (kriging) to fill cold zones. Automated regressors for holidays/events and monitoring hooks for drift.</p>
-          <ul class="desc-list">
-            <li>Feature engineering for temporal/spatial seasonality, weather, and event calendars.</li>
-            <li>Backtesting across multi-season windows; prioritized RMSE and coverage stability.</li>
-          </ul>
-        </div>
+        <!-- Removed expandable details for simplified UX -->
       </article>
 
       <!-- PROJECT 2: Sentiment -->
@@ -666,7 +661,6 @@
               <span class="tag" data-skill="Classification">Classification</span>
               <span class="tag" data-skill="Docker">Docker</span>
               <span class="tag" data-skill="Google Cloud Platform">Google Cloud Platform</span>
-              <span class="tag" data-skill="Semantic Search">Semantic Search</span>
               <span class="tag" data-skill="Embeddings">Embeddings</span>
               <span class="tag" data-skill="CI/CD">CI/CD</span>
             </div>
@@ -695,9 +689,9 @@
                 <li>Only <span class="metric">stored docs</span> + citations (no hallucination)</li>
               </ul>
             </div>
-            <div class="links-block" style="margin-top:4px;">
-              <a class="btn" href="mailto:ivanseldasp@gmail.com?subject=Content%20Automation%20Workflow%20demo" target="_blank" rel="noopener noreferrer">Request Demo</a>
-              <a class="btn" href="#" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <!-- links-block removed per request (Request Demo & GitHub) -->
+            <div class="links-block" style="display:none;">
+              <!-- Removed Request Demo & GitHub buttons -->
             </div>
           </div>
           <div class="media">
@@ -737,7 +731,7 @@
               </ul>
             </div>
             <div class="links-block">
-              <a class="btn" href="#">GitHub</a>
+              <a class="btn" href="https://github.com/ivanseldas/Clients-Churn-Predictor/blob/main/telecom_churn_clients_predictor_v2.ipynb" target="_blank" rel="noopener noreferrer">Notebook</a>
             </div>
           </div>
           <div class="media">
@@ -751,8 +745,7 @@
             </picture>
             <div class="tag-block tags" style="margin-top:24px;">
               <span class="tag" data-skill="Classification">Classification</span>
-              <span class="tag" data-skill="Docker">Docker</span>
-              <span class="tag" data-skill="CI/CD">CI/CD</span>
+              <!-- Removed Docker & CI/CD tags per request -->
             </div>
           </div>
         </div>
