@@ -181,6 +181,20 @@
     gap: 4px;
     margin: 0;
   }
+  /* Ensure selected skills in Skills section look like hover (blue) */
+  .skill-columns .tags .tag.selected {
+    background: var(--accent);
+    color: #000;
+    border-color: var(--accent);
+  }
+  /* Skills row order (requested display sequence) */
+  #skill-groups .skill-col[data-group="programming"] { order: 1; }
+  #skill-groups .skill-col[data-group="ml"] { order: 2; }
+  #skill-groups .skill-col[data-group="ai-nlp"] { order: 3; }
+  #skill-groups .skill-col[data-group="visualization"] { order: 4; }
+  #skill-groups .skill-col[data-group="geospatial"] { order: 5; }
+  #skill-groups .skill-col[data-group="cloud"] { order: 6; }
+  #skill-groups .skill-col[data-group="mlops"] { order: 7; }
 
   .tag {
     display: inline-flex;
@@ -644,11 +658,11 @@
               <span class="tag" data-skill="Git">GitHub</span>
               <span class="tag" data-skill="CI/CD">CI/CD</span>
               <span class="tag" data-skill="n8n">n8n</span>
-            <span class="tag" data-skill="FastAPI">FastAPI</span>
-            <span class="tag" data-skill="Streamlit">Streamlit</span>
+              <span class="tag" data-skill="FastAPI">FastAPI</span>
+              <span class="tag" data-skill="Streamlit">Streamlit</span>
+            </div>
           </div>
         </div>
-        <hr>
       </div>
       <button id="clear-skills-btn" type="button" class="clear-skills-btn" aria-hidden="true" aria-label="Clear selected skills">Clear selected skills ✕ <span id="skill-match-count" style="display:none;opacity:.8;font-weight:500;">(0 matches)</span></button>
     </div>
