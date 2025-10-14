@@ -17,7 +17,7 @@
        THEME TOKENS & GLOBAL RESET
        ====================================== */
     :root {
-      --bg:#0c0c0c; --fg:#fff; --muted:#888; --accent:#7dd3fc; --card:#1a1a1a; --border:#2c2c2c;
+      --bg:#0c0c0c; --fg:#fff; --muted:#888; --accent:#7dd3fc; --card:#1a1a1a;
     /* Spacing scale (more compact) */
   --pad-section:30px;          /* standard vertical padding tighter */
   --pad-section-compact:18px;  /* compact variant (skills) */
@@ -136,6 +136,65 @@
   #skills::before { content:none !important; }
   /* Extra tightening for first sections so Projects preview appears above the fold */
   #skills .skill-intro { margin-bottom:12px; }
+
+  .skill-columns {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 15px;
+  }
+
+  .skill-header {
+    display: flex;
+    align-items: baseline;
+    gap: 15px;
+  }
+
+  .skill-col {
+    padding: 4px 0;
+    position: relative;
+  }
+  
+  .skill-col::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .skill-header h4 {
+    min-width: 180px;
+    margin: 0;
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #fff;
+    text-transform: none;
+  }
+
+  .skill-header .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin: 0;
+  }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #111;
+    font-size: var(--fs-xs);
+    letter-spacing: .6px;
+    text-transform: uppercase;
+    transition: all .2s ease;
+    color: #bdbdbd;
+    line-height: 1;
+  }
   /* Selected Work uses standard section spacing */
   #projects { padding:var(--space-section-y) 0; }
   @media (max-width:680px){ #projects { padding:var(--space-section-y-mobile) 0; } }
@@ -178,14 +237,13 @@
   .skill-group.card-compact { background:#111; border:1px solid var(--border); border-radius:10px; padding:10px 12px 8px; }
   .skill-group.card-compact h4 { margin:0 0 4px; font-size:var(--fs-xs); letter-spacing:.75px; text-transform:uppercase; color:#bdbdbd; font-weight:600; }
   .skill-group.card-compact .tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:2px; }
-  /* Unified skill columns layout */
-  .skill-columns { display:grid; gap:14px 28px; align-items:start; grid-auto-rows:minmax(0,auto); grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); }
-  @media (min-width:1080px){ .skill-columns { grid-template-columns:repeat(6,1fr); } }
-  .skill-columns .skill-col { display:flex; flex-direction:column; padding:0; background:transparent; border:none; }
-  .skill-columns .skill-col h4 { margin:0 0 4px; font-size:calc(var(--fs-xs) * 0.95); letter-spacing:.6px; color:#bdbdbd; font-weight:600; line-height:1.25; display:-webkit-box; -webkit-line-clamp:2; line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; min-height:2.5em; }
-  .skill-columns .skill-col h4::after { content:none; }
-  .skill-columns .tags { display:flex; flex-direction:column; flex-wrap:nowrap; gap:6px; align-items:flex-start; border-top:1px solid var(--border); padding-top:8px; margin-top:2px; }
-  .skill-columns .tags .tag { padding:4px 9px; font-size:var(--fs-xs); line-height:1.2; white-space:nowrap; display:inline-block; border-radius:999px; }
+  /* Unified skills row layout */
+  .skill-columns { display:flex; flex-direction:column; gap:12px; }
+  .skill-columns .skill-col { display:flex; flex-direction:column; padding:0; background:transparent; }
+  .skill-columns .skill-col h4 { margin:0 0 4px; font-size:calc(var(--fs-xs) * 0.95); letter-spacing:.8px; color:#bdbdbd; font-weight:600; text-transform:uppercase; }
+  .skill-columns .tags { display:flex; flex-wrap:wrap; gap:6px; border-top:1px solid var(--border); padding-top:8px; margin-top:2px; }
+  .skill-columns .tags .tag { padding:4px 9px; font-size:var(--fs-xs); line-height:1.2; background:var(--card); transition:.2s ease; }
+  .skill-columns .tags .tag:hover { background:var(--accent); color:#000; }
   /* Responsive auto-fit layout ensures wider columns; removes fixed breakpoints */
   /* Prevent wrapping of long tag text */
   #skills .tag[data-skill="Hyperparameter Tuning"] { white-space:nowrap; }
@@ -507,70 +565,92 @@
     <div class="container">
       <div class="skill-columns" id="skill-groups">
         <div class="skill-col" data-group="programming">
-          <h4>PROGRAMMING</h4>
-          <div class="tags">
-            <span class="tag" data-skill="Python">Python</span>
-            <span class="tag" data-skill="SQL">SQL</span>
-            <span class="tag" data-skill="PySpark">PySpark</span>
-            <span class="tag" data-skill="C">C</span>
+          <div class="skill-header">
+            <h4>Programming</h4>
+            <div class="tags">
+              <span class="tag" data-skill="Python">Python</span>
+              <span class="tag" data-skill="SQL">SQL</span>
+              <span class="tag" data-skill="PySpark">PySpark</span>
+              <span class="tag" data-skill="C">C</span>
+            </div>
           </div>
         </div>
-        <div class="skill-col" data-group="ml-stat">
-          <h4>MACHINE LEARNING & STATISTICAL MODELING</h4>
-          <div class="tags">
-            <span class="tag" data-skill="Classification">Classification</span>
-            <span class="tag" data-skill="Regression">Regression</span>
-            <span class="tag" data-skill="Clustering">Clustering</span>
-            <span class="tag" data-skill="A/B Testing">A/B Testing</span>
-            <span class="tag" data-skill="Time Series Forecasting">Time Series Forecasting</span>
+        <div class="skill-col" data-group="geospatial">
+          <div class="skill-header">
+            <h4>Geospatial Analysis</h4>
+            <div class="tags">
+              <span class="tag" data-skill="ArcGIS">ArcGIS</span>
+              <span class="tag" data-skill="ArcGIS">ArcPy</span>
+              <span class="tag" data-skill="PostGIS">PostGIS</span>
+              <span class="tag" data-skill="GeoPandas">GeoPandas</span>
+              <span class="tag" data-skill="Shapely">Shapely</span>
+              <span class="tag" data-skill="NetworkX">NetworkX</span>
+              <span class="tag" data-skill="OSMnx">OSMnx</span>
+            </div>
           </div>
         </div>
-        <div class="skill-col" data-group="nlp-applied-ai">
-          <h4>NLP & APPLIED AI</h4>
-          <div class="tags">
-            <span class="tag" data-skill="Transformers">Transformers</span>
-            <span class="tag" data-skill="RoBERTa">RoBERTa</span>
-            <span class="tag" data-skill="LLM Fine-Tuning">LLM Fine-Tuning</span>
-            <span class="tag" data-skill="Embeddings">Embeddings</span>
-            <span class="tag" data-skill="Semantic Search">Semantic Search</span>
-            <span class="tag" data-skill="RAG Pipelines">RAG Pipelines</span>
-            <span class="tag" data-skill="AI Agents">AI Agents</span>
+        <div class="skill-col" data-group="ml">
+          <div class="skill-header">
+            <h4>Machine Learning</h4>
+            <div class="tags">
+              <span class="tag" data-skill="Classification">Classification</span>
+              <span class="tag" data-skill="Regression">Regression</span>
+              <span class="tag" data-skill="Clustering">Clustering</span>
+              <span class="tag" data-skill="Forecasting">Forecasting</span>
+              <span class="tag" data-skill="A/B Testing">A/B Testing</span>
+            </div>
           </div>
         </div>
-        <div class="skill-col" data-group="data-visualization">
-          <h4>VISUALIZATION</h4>
-          <div class="tags">
-            <span class="tag" data-skill="Tableau">Tableau</span>
-            <span class="tag" data-skill="Power BI">Power BI</span>
-            <span class="tag" data-skill="Plotly">Plotly</span>
-            <span class="tag" data-skill="Matplotlib">Matplotlib</span>
+        <div class="skill-col" data-group="ai-nlp">
+          <div class="skill-header">
+            <h4>Generative AI & NLP</h4>
+            <div class="tags">
+              <span class="tag" data-skill="RAG Pipelines">RAG</span>
+              <span class="tag" data-skill="LLM Fine-Tuning">LLM Fine-Tuning</span>
+              <span class="tag" data-skill="Embeddings">Embeddings</span>
+              <span class="tag" data-skill="Semantic Search">Semantic Search</span>
+              <span class="tag" data-skill="Transformers">Transformers</span>
+              <span class="tag" data-skill="RoBERTa">RoBERTa</span>
+            </div>
+          </div>
+        </div>
+        <div class="skill-col" data-group="visualization">
+          <div class="skill-header">
+            <h4>Visualization</h4>
+            <div class="tags">
+              <span class="tag" data-skill="Tableau">Tableau</span>
+              <span class="tag" data-skill="Power BI">Power BI</span>
+              <span class="tag" data-skill="Plotly">Plotly</span>
+              <span class="tag" data-skill="Matplotlib">Matplotlib</span>
+            </div>
+          </div>
+        </div>
+        <div class="skill-col" data-group="cloud">
+          <div class="skill-header">
+            <h4>Cloud & Big Data</h4>
+            <div class="tags">
+              <span class="tag" data-skill="Google Cloud Platform">GCP (Cloud Run, BigQuery)</span>
+              <span class="tag" data-skill="AWS">AWS (Glue, SageMaker, ECS Fargate)</span>
+              <span class="tag" data-skill="PostgreSQL">PostgreSQL</span>
+            </div>
+          </div>
+        </div>
+        <div class="skill-col" data-group="mlops">
+          <div class="skill-header">
+            <h4>Automation & MLOps</h4>
+            <div class="tags">
+              <span class="tag" data-skill="MLflow">MLflow</span>
+              <span class="tag" data-skill="Docker">Docker</span>
+              <span class="tag" data-skill="Git">GitHub</span>
+              <span class="tag" data-skill="CI/CD">CI/CD</span>
+              <span class="tag" data-skill="n8n">n8n</span>
+            <span class="tag" data-skill="FastAPI">FastAPI</span>
             <span class="tag" data-skill="Streamlit">Streamlit</span>
           </div>
         </div>
-        <div class="skill-col" data-group="cloud-data-eng">
-          <h4>CLOUD & DATA ENGINEERING</h4>
-          <div class="tags">
-            <span class="tag" data-skill="PostgreSQL">PostgreSQL</span>
-            <span class="tag" data-skill="Supabase">Supabase</span>
-            <span class="tag" data-skill="Snowflake">Snowflake</span>
-            <span class="tag" data-skill="Google Cloud Platform">Google Cloud Platform</span>
-            <span class="tag" data-skill="AWS">AWS</span>
-          </div>
-        </div>
-        <div class="skill-col" data-group="automation-mlops">
-          <h4>AUTOMATION & MLOPS</h4>
-          <div class="tags">
-            <span class="tag" data-skill="Docker">Docker</span>
-            <span class="tag" data-skill="CI/CD">CI/CD</span>
-            <span class="tag" data-skill="Git">Git</span>
-            <span class="tag" data-skill="n8n">n8n</span>
-            <span class="tag" data-skill="FastAPI">FastAPI</span>
-            <span class="tag" data-skill="MLflow">MLflow</span>
-          </div>
-        </div>
+        <hr>
       </div>
-  <button id="clear-skills-btn" type="button" class="clear-skills-btn" aria-hidden="true" aria-label="Clear selected skills">Clear selected skills ✕ <span id="skill-match-count" style="display:none;opacity:.8;font-weight:500;">(0 matches)</span></button>
-  <!-- Missing skill suggestion section removed -->
+      <button id="clear-skills-btn" type="button" class="clear-skills-btn" aria-hidden="true" aria-label="Clear selected skills">Clear selected skills ✕ <span id="skill-match-count" style="display:none;opacity:.8;font-weight:500;">(0 matches)</span></button>
     </div>
   </section>
 
